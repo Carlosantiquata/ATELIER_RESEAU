@@ -165,7 +165,7 @@ vous apprend cette observation sur la portée de chaque couche&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> la couche 2 n'a pas de portée que sur le segment local,a chaque saut, le routeur remplace les adresses mac mais l'ip reste la meme, mais la mac change à chaque segment.
 
 **Question 2.** Vous capturez sur `eth0` du client (côté LAN). Dans votre
 trace, l'**IP source** sortante est `172.20.1.50`. Pourtant, `curl /whoami`
