@@ -140,7 +140,8 @@ NAT (exercice 3), pointez-le vers le bon conteneur et le bon fichier :
 
 > 💬 **Votre réponse (sorties du script + analyse) :**
 >
-> _Remplacez ce texte par votre réponse._
+> <img width="1882" height="736" alt="image" src="https://github.com/user-attachments/assets/2fa657da-7117-4fbf-9d11-16e778ef2dfd" />
+
 
 ## À rendre — répondez directement dans ce fichier
 
