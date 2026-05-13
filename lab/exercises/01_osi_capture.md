@@ -152,10 +152,10 @@ capture** (champ, valeur observée). Justifiez en 1-2 phrases.
 | 7 — Application    | _ex. méthode HTTP_              | `GET /whoami HTTP/1.1` |
 | 6 — Présentation   | _ex. encodage / Content-Type_   | …              |
 | 5 — Session        | _ex. Keep-Alive, cookies_       | …              |
-| 4 — Transport      | _ex. port TCP, flags_           | …              |
-| 3 — Réseau         | _ex. IP source / destination_   | …              |
-| 2 — Liaison        | _ex. adresses MAC_              | …              |
-| 1 — Physique       | _non visible — pourquoi&nbsp;?_ | …              |
+| 4 — Transport      | Port destination, flags TCP     | port 80, flags SYN |
+| 3 — Réseau         | IP source / destination         | 172.20.1.50 → 172.20.0.10 |
+| 2 — Liaison        | _ex. adresses MAC_              | 02:42:ac:14:01:32 → 02:42:ac:14:01:fe |
+| 1 — Physique       | _non visible — pourquoi&nbsp;?_ | car on ne voit que les signaux |
 
 ## Questions de réflexion
 
