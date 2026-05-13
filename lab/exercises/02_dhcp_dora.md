@@ -55,7 +55,12 @@ Notez **l'IP attribuée, le masque, la passerelle, les DNS, la durée de bail**.
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse (IP / masque / GW / DNS / bail)._
+> - **IP attribuée** : `172.20.1.172/24` (dynamique DHCP)
+- **Masque** : `255.255.255.0` (`/24`)
+- **Passerelle (GW)** : `172.20.1.1`
+- **DNS** : `1.1.1.1` et `8.8.8.8`
+- **Domaine** : `lab.local`
+- **Durée de bail** : 12h (T1 = 6h, T2 = 10h30)
 
 ### 3. Questions de réflexion
 
@@ -65,14 +70,14 @@ Que se passerait-il avec n'importe quelle autre adresse&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le client n'a pas encore d'IP au moment du Discover — il ne peut donc pas en mettre une valide. `0.0.0.0` est la convention DHCP pour signifier "émetteur sans adresse". Si le client utilisait une IP arbitraire, les routeurs pourraient rejeter le paquet car l'adresse source ne correspondrait à aucune interface connue sur le réseau.
 
 **Question 2.** Pourquoi le **Request** est-il **rediffusé en broadcast**
 alors que le client connaît déjà l'IP du serveur après l'Offer&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Parce qu'il peut y avoir plusieurs serveurs DHCP sur le réseau qui ont tous envoyé une Offer. Le broadcast permet d'informer simultanément tous les serveurs que le client a choisi l'un d'eux — les autres retirent alors leur offre et libèrent l'adresse réservée.
 
 **Question 3.** À quoi sert le **transaction ID (xid)** présent dans les
 4 paquets&nbsp;? Que se passerait-il s'il était omis dans un réseau avec
@@ -80,7 +85,7 @@ plusieurs serveurs DHCP&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le xid est un identifiant aléatoire généré par le client pour associer chaque Offer/ACK à son propre Discover/Request. Sans lui, dans un réseau avec plusieurs clients et serveurs DHCP, un client ne pourrait pas distinguer quelle réponse lui est destinée — il risquerait d'accepter la configuration d'un autre client.
 
 **Question 4.** Que renvoie le serveur si vous demandez explicitement une
 adresse hors du pool (essayez `dhclient -v -s 172.20.1.99 eth0`)&nbsp;?
@@ -88,14 +93,14 @@ Justifiez.
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le serveur renvoie un **DHCPNAK** (refus). L'adresse `172.20.1.99` est hors du pool configuré (`172.20.1.100 -- 172.20.1.200`), le serveur ne peut donc pas l'attribuer et refuse explicitement la demande pour éviter des conflits d'adresses.
 
 **Question 5.** La directive `dhcp-authoritative` est active sur notre
 serveur. Quel est son effet **comportemental** sur les NAK&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Avec `dhcp-authoritative`, le serveur envoie immédiatement un DHCPNAK si un client demande une adresse qu'il ne reconnaît pas (bail expiré, mauvais réseau, hors pool). Sans cette directive, le serveur ignorerait silencieusement la demande et attendrait, ce qui allongerait inutilement le délai de reconfiguration du client.
 
 ### 4. Renouvellement de bail (T1/T2)
 
