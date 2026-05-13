@@ -110,4 +110,4 @@ un rebind T2 (destinataire du paquet, comportement attendu).
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> À T1 (6h), le client envoie un DHCPREQUEST en **unicast directement au serveur** qui lui a attribué le bail pour tenter de le renouveler — c'est une négociation silencieuse entre les deux. Si le serveur ne répond pas, le client attend T2 (10h30) et envoie cette fois un DHCPREQUEST en **broadcast**, car il cherche n'importe quel serveur DHCP disponible pour rebind son adresse. Si aucun serveur ne répond avant l'expiration du bail (12h), le client perd son adresse et recommence un cycle DORA complet.
