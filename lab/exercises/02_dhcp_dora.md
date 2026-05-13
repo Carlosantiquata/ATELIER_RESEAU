@@ -39,11 +39,10 @@ Complétez en vous appuyant sur **votre propre capture**&nbsp;:
 
 | Étape       | Émetteur (IP src) | Destinataire (IP dst) | MAC src / dst | Options DHCP notables |
 | ----------- | ----------------- | --------------------- | ------------- | --------------------- |
-| 1. Discover | `0.0.0.0`         | `255.255.255.255`     | …             | option 53 = …, option 55 = … |
-| 2. Offer    | …                 | …                     | …             | … |
-| 3. Request  | …                 | …                     | …             | … |
-| 4. ACK      | …                 | …                     | …             | … |
-
+| 1. Discover | `0.0.0.0`         | `255.255.255.255`     | `66:c6:cb:25:f7:2a` → `ff:ff:ff:ff:ff:ff` | option 53 = 1 (Discover), option 55 = netmask, router, dns-server, domain-name, hostname |
+| 2. Offer    | `172.20.1.2`      | `255.255.255.255`     | serveur → `ff:ff:ff:ff:ff:ff` | option 53 = 2 (Offer), option 54 = 172.20.1.2, option 51 = 12h, option 3 = 172.20.1.254, option 6 = 1.1.1.1 / 8.8.8.8 |
+| 3. Request  | `0.0.0.0`         | `255.255.255.255`     | `66:c6:cb:25:f7:2a` → `ff:ff:ff:ff:ff:ff` | option 53 = 3 (Request), option 54 = 172.20.1.2, option 50 = 172.20.1.172 |
+| 4. ACK      | `172.20.1.2`      | `255.255.255.255`     | serveur → `ff:ff:ff:ff:ff:ff` | option 53 = 5 (ACK), option 51 = 12h, option 58 = T1 6h, option 59 = T2 10h30m, option 3 = 172.20.1.254, option 6 = 1.1.1.1 / 8.8.8.8 |
 ### 2. Configuration finale du client
 
 ```bash
