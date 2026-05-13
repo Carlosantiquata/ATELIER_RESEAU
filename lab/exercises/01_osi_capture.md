@@ -175,7 +175,7 @@ et indiquez **où** il faudrait capturer pour voir l'IP réécrite.
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+>le nat routeur fait du "masquerade", il réécrit l'ip source du client en sa propre ip, avnat de la transmettre, et pour voir l'ip qui est réécrit il faut capturé les paquet sur l'interface WAN
 
 **Question 3.** Lancez `curl -v https://...` vers un site HTTPS public
 (depuis l'hôte, pas le lab). Quelle couche change visiblement par
@@ -184,7 +184,7 @@ visibilité&nbsp;?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> ka couche 6 deivent visible, TLS chiffre, la couche 7 dsiparait car le contenu est chiffré
 
 **Question 4.** La couche 5 (Session) est très peu visible dans une
 capture HTTP/1.1. Donnez **deux mécanismes applicatifs** qui jouent le
@@ -193,7 +193,7 @@ rôle de la couche session, et expliquez pourquoi ils sont implémentés
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+>http keep-alive= maintient la connexion tcp ; cookies de session= identifient une session utilisateur entre plusieur echange
 
 ## Pièges fréquents
 
